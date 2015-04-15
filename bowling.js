@@ -8,19 +8,19 @@ Bowling.prototype.result = function (rolls) {
 };
 
 Bowling.prototype.getScore = function () {
-  var accumulator;
+  var accumulator, currentFrame, nextFrame, isStrike, isSpare;
   var score = 0;
 
   for (var i = 0; i < this.rolls.length; i++) {
     if (i > 9)
       break;
 
-    var currentFrame = this.rolls[i];
-    var nextFrame = this.rolls[i + 1];
+    currentFrame = this.rolls[i];
+    nextFrame = this.rolls[i + 1];
     accumulator = 0;
 
-    var isStrike = this.isStrike(currentFrame[0]);
-    var isSpare = this.isSpare(currentFrame[1]);
+    isStrike = this.isStrike(currentFrame[0]);
+    isSpare = this.isSpare(currentFrame[1]);
 
     if (isStrike || isSpare) {
       if (nextFrame)
